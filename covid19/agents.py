@@ -42,7 +42,7 @@ class PersonaInfectada(RandomWalker):
 class PersonaMalalta(RandomWalker):
 
     def __init__(self, unique_id, pos, model, moore, temps_malalta):
-        super().__init__(unique_id, pos, model, moore=moore, temps_malalta)
+        super().__init__(unique_id, pos, model, moore=moore)
 
     def step(self):
         self.random_move()
