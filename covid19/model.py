@@ -45,7 +45,10 @@ class Covid19(Model):
         self.grid = MultiGrid(self.height, self.width, torus=True)
         self.datacollector = DataCollector(
             {
-                "Persona": lambda m: m.schedule.get_breed_count(PersonaInfectada),
+                "PersonaSaludable": lambda m: m.schedule.get_breed_count(PersonaSaludable),
+                "PersonaInfectada": lambda m: m.schedule.get_breed_count(PersonaInfectada),
+                "PersonaMalalta": lambda m: m.schedule.get_breed_count(PersonaMalalta),
+                "PersonaImmunitzada": lambda m: m.schedule.get_breed_count(PersonaImmunitzada),
                 "Virus": lambda m: m.schedule.get_breed_count(Virus)
             }
         )
@@ -54,7 +57,7 @@ class Covid19(Model):
         for i in range(self.inicial_persones):
             x = self.random.randrange(self.width)
             y = self.random.randrange(self.height)
-            persona = PersonaInfectada(self.next_id(), (x, y), self, True)
+            persona = PersonaSaludable(self.next_id(), (x, y), self, True)
             self.grid.place_agent(persona, (x, y))
             self.schedule.add(persona)
         
