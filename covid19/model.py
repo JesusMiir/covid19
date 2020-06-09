@@ -1,0 +1,97 @@
+from mesa import Model
+from mesa.space import MultiGrid
+from mesa.datacollection import DataCollector
+
+from covid19.agents import PersonaSaludable, PersonaInfectada, PersonaMalalta, PersonaImmunitzada, Virus
+from covid19.schedule import RandomActivationByBreed
+
+
+class Covid19(Model):
+
+    height = 20
+    width = 20
+
+    inicial_perones = 10
+    inicial_virus = 10
+    persones_reproduccio = 0
+    virus_reproduccio = 0
+
+    verbose = False  # Print-monitoring
+
+    description = (
+        "El model vol simular la capacitat que te un virus d'infectar a la població."
+    )
+
+    def __init__(
+        self,
+        height=20,
+        width=20,
+        inicial_persones=10,
+        inicial_virus=10,
+        persones_reproduccio=0,
+        virus_reproduccio=0,
+    ):
+
+        super().__init__()
+        # Set parameters
+        self.height = height
+        self.width = width
+        self.inicial_persones = inicial_persones
+        self.inicial_virus = inicial_virus
+        self.persones_reproduccio = persones_reproduccio
+        self.virus_reproduccio = virus_reproduccio
+
+        self.schedule = RandomActivationByBreed(self)
+        self.grid = MultiGrid(self.height, self.width, torus=True)
+        self.datacollector = DataCollector(
+            {
+                "Persona": lambda m: m.schedule.get_breed_count(PersonaInfectada),
+                "Virus": lambda m: m.schedule.get_breed_count(Virus)
+            }
+        )
+
+        # Crear persones:
+        for i in range(self.inicial_persones):
+            x = self.random.randrange(self.width)
+            y = self.random.randrange(self.height)
+            persona = PersonaInfectada(self.next_id(), (x, y), self, True)
+            self.grid.place_agent(persona, (x, y))
+            self.schedule.add(persona)
+        
+        #Crear virus:
+        for i in range(self.inicial_virus):
+            x = self.random.randrange(self.width)
+            y = self.random.randrange(self.height)
+            energy = 10
+            virus = Virus(self.next_id(), (x, y), self, True, energy)
+            self.grid.place_agent(virus, (x,y))
+            self.schedule.add(virus)
+
+        self.running = True
+        self.datacollector.collect(self)
+
+    def step(self):
+        self.schedule.step()
+        self.datacollector.collect(self)
+        if self.verbose:
+            print(
+                [
+                    self.schedule.time,
+                    self.schedule.get_breed_count(Persona),
+                    self.schedule.get_breed_count(Virus)
+                ]
+            )
+
+    def run_model(self, step_count=200):
+
+        if self.verbose:
+            print("Nombre inicial de persones: ", self.schedule.get_breed_count(Persona))
+            print("Nombre inicila de virus: ", self.schedule.get_breed_count(Virus))
+
+        for i in range(step_count):
+            self.step()
+
+        if self.verbose:
+            print("")
+            print("Nombre final de persones: ", self.schedule.get_breed_count(Persona))
+            print("Nombre final de virus: ", self.schedule.get_breed_count(Virus))
