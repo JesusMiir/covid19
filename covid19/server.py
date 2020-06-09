@@ -13,7 +13,7 @@ def covid19_portrayal(agent):
     portrayal = {}
 
     if type(agent) is PersonaInfectada:
-        portrayal["Shape"] = "covid19/resources/persona_infectada.jpg"
+        portrayal["Shape"] = "covid19/resources/persona_immune.jpg"
         portrayal["scale"] = 0.9
         portrayal["Layer"] = 1
 
