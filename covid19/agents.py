@@ -58,8 +58,12 @@ class Virus(RandomWalker):
         if len(persona) > 0:
             persona = self.random.choice(persona)        
             self.model.grid._remove_agent(self.pos, persona)
-            self.model.schedule.remove(self)
-            
+            self.model.schedule.remove(persona)
+            persona_infectada = PersonaInfectada(
+                self.model.next_id(), self.pos, self.model, self.moore
+            )
+            self.model.grid.place_agent(persona_infectada, self.pos)
+            self.model.schedule.add(persona_infectada)
             
         
 
