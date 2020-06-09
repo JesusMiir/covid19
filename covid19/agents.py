@@ -57,7 +57,7 @@ class PersonaMalalta(RandomWalker):
             self.model.grid._remove_agent(self.pos, persona)
             self.model.schedule.remove(persona)
             persona_immunitzada = PersonaImmunitzada(
-                self.model.next_id(), self.pos, self.model, self.moores
+                self.model.next_id(), self.pos, self.model, self.moore
             )
             self.model.grid.place_agent(persona_immunitzada, self.pos)
             self.model.schedule.add(persona_immunitzada)
