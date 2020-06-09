@@ -80,7 +80,10 @@ class Covid19(Model):
             print(
                 [
                     self.schedule.time,
-                    self.schedule.get_breed_count(Persona),
+                    self.schedule.get_breed_count(PersonaSaludable),
+                    self.schedule.get_breed_count(PersonaInfectada),
+                    self.schedule.get_breed_count(PersonaMalalta),
+                    self.schedule.get_breed_count(PersonaImmunitzada),
                     self.schedule.get_breed_count(Virus)
                 ]
             )
@@ -88,7 +91,10 @@ class Covid19(Model):
     def run_model(self, step_count=200):
 
         if self.verbose:
-            print("Nombre inicial de persones: ", self.schedule.get_breed_count(Persona))
+            print("Nombre inicial de persones: ", self.schedule.get_breed_count(PersonaSaludable))
+            print("Nombre inicial de persones: ", self.schedule.get_breed_count(PersonaInfectada))
+            print("Nombre inicial de persones: ", self.schedule.get_breed_count(PersonaMalalta))
+            print("Nombre inicial de persones: ", self.schedule.get_breed_count(PersonaImmunitzada))
             print("Nombre inicila de virus: ", self.schedule.get_breed_count(Virus))
 
         for i in range(step_count):
@@ -96,5 +102,8 @@ class Covid19(Model):
 
         if self.verbose:
             print("")
-            print("Nombre final de persones: ", self.schedule.get_breed_count(Persona))
+            print("Nombre final de persones: ", self.schedule.get_breed_count(PersonaSaludable))
+            print("Nombre final de persones: ", self.schedule.get_breed_count(PersonaInfectada))
+            print("Nombre final de persones: ", self.schedule.get_breed_count(PersonaMalalta))
+            print("Nombre final de persones: ", self.schedule.get_breed_count(PersonaImmunitzada))
             print("Nombre final de virus: ", self.schedule.get_breed_count(Virus))
