@@ -26,16 +26,14 @@ class PersonaInfectada(RandomWalker):
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaSaludable)]
-
-            if len(persona) > 0:
-                persona = self.random.choice(persona)        
-                self.model.grid._remove_agent(self.pos, persona)
-                self.model.schedule.remove(persona)
-                persona_infectada = PersonaMalalta(
-                    self.model.next_id(), self.pos, self.model, self.moore, 10
-                )
-                self.model.grid.place_agent(persona_infectada, self.pos)
-                self.model.schedule.add(persona_infectada)
+            persona = self.random.choice(persona)        
+            self.model.grid._remove_agent(self.pos, persona)
+            self.model.schedule.remove(persona)
+            persona_infectada = PersonaMalalta(
+                self.model.next_id(), self.pos, self.model, self.moore, 10
+            )
+            self.model.grid.place_agent(persona_infectada, self.pos)
+            self.model.schedule.add(persona_infectada)
             
 
 
@@ -55,16 +53,14 @@ class PersonaMalalta(RandomWalker):
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaSaludable)]
-            
-            if len(persona) > 0:
-                    persona = self.random.choice(persona)        
-                    self.model.grid._remove_agent(self.pos, persona)
-                    self.model.schedule.remove(persona)
-                    persona_infectada = PersonaImmunitzada(
-                        self.model.next_id(), self.pos, self.model, self.moores
-                    )
-                    self.model.grid.place_agent(persona_infectada, self.pos)
-                    self.model.schedule.add(persona_infectada)
+            persona = self.random.choice(persona)        
+            self.model.grid._remove_agent(self.pos, persona)
+            self.model.schedule.remove(persona)
+            persona_infectada = PersonaImmunitzada(
+                self.model.next_id(), self.pos, self.model, self.moores
+            )
+            self.model.grid.place_agent(persona_infectada, self.pos)
+            self.model.schedule.add(persona_infectada)
 
 class PersonaImmunitzada(RandomWalker):
 
