@@ -53,7 +53,7 @@ class Virus(RandomWalker):
 
         x, y = self.pos
         this_cell = self.model.grid.get_cell_list_contents([self.pos])
-        persona = [obj for obj in this_cell if isinstance(obj, Persona)]
+        persona = [obj for obj in this_cell if isinstance(obj, PersonaSaludable)]
 
         if len(persona) > 0:
             persona = self.random.choice(persona)        
