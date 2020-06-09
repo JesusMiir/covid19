@@ -21,7 +21,7 @@ class PersonaInfectada(RandomWalker):
         self.random_move()
         living = True
 
-class PersonaMalalta():
+class PersonaMalalta(RandomWalker):
 
     def __init__(self, unique_id, pos, model, moore):
         super().__init__(unique_id, pos, model, moore=moore)
@@ -30,7 +30,7 @@ class PersonaMalalta():
         self.random_move()
         living = True
 
-class PersonaImmunitzada():
+class PersonaImmunitzada(RandomWalker):
 
     def __init__(self, unique_id, pos, model, moore):
         super().__init__(unique_id, pos, model, moore=moore)
@@ -58,6 +58,11 @@ class Virus(RandomWalker):
         if len(persona) > 0:
             persona = self.random.choice(persona)        
             self.model.grid._persona_infectada(self.pos, persona_infectada)
+            persona_infectada = PersonaInfectada(
+                self.model.next_id(), self.pos, self.model, self.moore, self.energy
+            )
+            self.model.grid.place_agent(lamb, self.pos)
+            self.model.schedule.add(lamb)
             
         
 
