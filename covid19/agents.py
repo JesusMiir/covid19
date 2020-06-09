@@ -25,7 +25,7 @@ class PersonaInfectada(RandomWalker):
         if self.temps_deteccio < 0:
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
-            persona = [obj for obj in this_cell if isinstance(obj, PersonaSaludable)]
+            persona = [obj for obj in this_cell if isinstance(obj, PersonaInfectada)]
             persona = self.random.choice(persona)        
             self.model.grid._remove_agent(self.pos, persona)
             self.model.schedule.remove(persona)
@@ -52,7 +52,7 @@ class PersonaMalalta(RandomWalker):
         if self.temps_malalta < 0:
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
-            persona = [obj for obj in this_cell if isinstance(obj, PersonaSaludable)]
+            persona = [obj for obj in this_cell if isinstance(obj, PersonaMalalta)]
             persona = self.random.choice(persona)        
             self.model.grid._remove_agent(self.pos, persona)
             self.model.schedule.remove(persona)
