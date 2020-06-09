@@ -12,22 +12,22 @@ def covid19_portrayal(agent):
 
     portrayal = {}
 
-    if type(agent) is PersonaImmune:
+    if type(agent) is PersonaSaludable:
         portrayal["Shape"] = "covid19/resources/persona_saludable.jpg"
         portrayal["scale"] = 0.9
         portrayal["Layer"] = 1
 
-    if type(agent) is PersonaImmune:
+    if type(agent) is PersonaInfectada:
         portrayal["Shape"] = "covid19/resources/persona_infectada.jpg"
         portrayal["scale"] = 0.9
         portrayal["Layer"] = 2
     
-    if type(agent) is PersonaImmune:
+    if type(agent) is PersonaMalalta:
         portrayal["Shape"] = "covid19/resources/persona_malalta.jpg"
         portrayal["scale"] = 0.9
         portrayal["Layer"] = 3
     
-    if type(agent) is PersonaImmune:
+    if type(agent) is PersonaImmunitzada:
         portrayal["Shape"] = "covid19/resources/persona_immune.jpg"
         portrayal["scale"] = 0.9
         portrayal["Layer"] = 4
