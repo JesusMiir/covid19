@@ -48,7 +48,7 @@ class PersonaMalalta(RandomWalker):
         self.random_move()
         self.temps_malalta -= 1
 
-        if (self.random.random() < self.risc_persona) or (self.temps_malalta < 0):
+        if (self.random.random() < self.risc_persona):
              x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaMalalta)]
