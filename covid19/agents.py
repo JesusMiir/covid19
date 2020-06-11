@@ -40,15 +40,16 @@ class PersonaInfectada(RandomWalker):
 
 class PersonaMalalta(RandomWalker):
 
-    def __init__(self, unique_id, pos, model, moore, temps_malalta=10):
+    def __init__(self, unique_id, pos, model, moore, temps_malalta=10, risc_persona = 1):
         super().__init__(unique_id, pos, model, moore=moore)
         self.temps_malalta=temps_malalta
+        self.risc_persona = risc_persona
 
     def step(self):
         self.random_move()
         self.temps_malalta -= 1
 
-        if (self.random.random() < self.risc_persona):
+        if (self.random.random() < self.risc_persona) or (self.temps_malalta < 0):
              x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaMalalta)]
