@@ -52,14 +52,8 @@ model_params = {
     "inicial_persones": UserSettableParameter(
         "slider", "Inici persones", 10, 0, 30
     ),
-    "persones_reproduccio": UserSettableParameter(
-        "slider", "PersonaInfectada Reproduction Rate", 0.04, 0.01, 1.0, 0.01
-    ),
     "inicial_virus": UserSettableParameter(
         "slider", "Inici virus", 10, 0, 30
-    ),
-    "virus_reproduccio": UserSettableParameter(
-        "slider", "Virus Reproduction Rate", 0.04, 0.01, 1.0, 0.01
     )
 }
 
