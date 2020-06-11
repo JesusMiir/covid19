@@ -48,19 +48,20 @@ class PersonaMalalta(RandomWalker):
         self.random_move()
         self.temps_malalta -= 1
 
-
-        if self.temps_malalta < 0:
-            x, y = self.pos
+        if self.random.random() < self.risc_persona or self.temps_malalta < 0:
+             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaMalalta)]
             persona = self.random.choice(persona)        
             self.model.grid._remove_agent(self.pos, persona)
             self.model.schedule.remove(persona)
-            persona_immunitzada = PersonaImmunitzada(
-                self.model.next_id(), self.pos, self.model, self.moore
-            )
-            self.model.grid.place_agent(persona_immunitzada, self.pos)
-            self.model.schedule.add(persona_immunitzada)
+
+            if self.temps_malalta < 0:
+                persona_immunitzada = PersonaImmunitzada(
+                    self.model.next_id(), self.pos, self.model, self.moore
+                )
+                self.model.grid.place_agent(persona_immunitzada, self.pos)
+                self.model.schedule.add(persona_immunitzada)
 
 class PersonaImmunitzada(RandomWalker):
 
