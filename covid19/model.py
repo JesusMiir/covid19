@@ -13,8 +13,7 @@ class Covid19(Model):
 
     inicial_perones = 10
     inicial_virus = 10
-    persones_reproduccio = 0
-    virus_reproduccio = 0
+    mortalitat_virus = 1
 
     verbose = False  # Print-monitoring
 
@@ -28,8 +27,7 @@ class Covid19(Model):
         width=20,
         inicial_persones=10,
         inicial_virus=10,
-        persones_reproduccio=0,
-        virus_reproduccio=0,
+        mortalitat_virus=1,
     ):
 
         super().__init__()
@@ -38,8 +36,7 @@ class Covid19(Model):
         self.width = width
         self.inicial_persones = inicial_persones
         self.inicial_virus = inicial_virus
-        self.persones_reproduccio = persones_reproduccio
-        self.virus_reproduccio = virus_reproduccio
+        self.mortalitat_virus = mortalitat_viurs
 
         self.schedule = RandomActivationByBreed(self)
         self.grid = MultiGrid(self.height, self.width, torus=True)
