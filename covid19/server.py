@@ -54,7 +54,7 @@ model_params = {
     ),
     "inicial_virus": UserSettableParameter(
         "slider", "Inici virus", 10, 0, 30
-    )
+    ),
     "mortalitat_virus": UserSettableParameter(
         "slider", "Mortalitat Virus", 0, 0, 100
     )
