@@ -27,7 +27,7 @@ class Covid19(Model):
         width=20,
         inicial_persones=10,
         inicial_virus=10,
-        mortalitat_virus=1,
+        mortalitat_virus=1
     ):
 
         super().__init__()
