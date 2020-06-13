@@ -87,14 +87,15 @@ class PersonaImmunitzada(RandomWalker):
 
 class Virus(RandomWalker):
 
-    energy = None
+    energia = None
 
-    def __init__(self, unique_id, pos, model, moore, energy=None):
+    def __init__(self, unique_id, pos, model, moore, energia=None):
         super().__init__(unique_id, pos, model, moore=moore)
-        self.energy = energy
+        self.energia = energia
 
     def step(self):
         self.random_move()
+        self.energia -= 1
         living = True
 
         x, y = self.pos
@@ -111,5 +112,11 @@ class Virus(RandomWalker):
             self.model.grid.place_agent(persona_infectada, self.pos)
             self.model.schedule.add(persona_infectada)
             
-        
+        if (energia < 0):
+            x, y = self.pos
+            this_cell = self.model.grid.get_cell_list_contents([self.pos])
+            virus = [obj for obj in this_cell if isinstance(obj, Virus)]
+            virus = self.random.choice(persona)        
+            self.model.grid._remove_agent(self.pos, virus)
+            self.model.schedule.remove(persona)
 
