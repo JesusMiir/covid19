@@ -10,6 +10,13 @@ class PersonaSaludable(RandomWalker):
     def step(self):
         self.random_move()
         living = True
+
+        if (self.random.random() * 10) < (self.model.reproduccio_persona):
+            virus = PersonaSaludable(
+                self.model.next_id(), self.pos, self.model, self.moore
+            )       
+            self.model.grid.place_agent(virus, self.pos)
+            self.model.schedule.add(virus)
         
 
 class PersonaInfectada(RandomWalker):
@@ -91,6 +98,13 @@ class PersonaImmunitzada(RandomWalker):
     def step(self):
         self.random_move()
         living = True
+
+        if (self.random.random() * 10) < (self.model.reproduccio_persona):
+            virus = PersonaSaludable(
+                self.model.next_id(), self.pos, self.model, self.moore
+            )       
+            self.model.grid.place_agent(virus, self.pos)
+            self.model.schedule.add(virus)
 
 class Virus(RandomWalker):
 

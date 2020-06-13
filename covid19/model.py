@@ -11,9 +11,11 @@ class Covid19(Model):
     height = 20
     width = 20
 
-    inicial_perones = 10
+    inicial_perones = 20
     inicial_virus = 10
-    reproduccio_virus = 10
+    reproduccio_persones = 5
+    reproduccio_virus = 5
+    
 
     temps_deteccio = 1
     durada_malaltia = 1
@@ -29,8 +31,9 @@ class Covid19(Model):
         self,
         height=20,
         width=20,
-        inicial_persones=10,
+        inicial_persones=20,
         inicial_virus=10,
+        reproduccio_persones = 5,
         reproduccio_virus = 5,
         temps_deteccio=1,
         durada_malaltia=1,
@@ -43,6 +46,7 @@ class Covid19(Model):
         self.width = width
         self.inicial_persones = inicial_persones
         self.inicial_virus = inicial_virus
+        self.reproduccio_persones = reproduccio_persones
         self.reproduccio_virus = reproduccio_virus
         self.temps_deteccio = temps_deteccio
         self.durada_malaltia = durada_malaltia
