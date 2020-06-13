@@ -13,6 +13,7 @@ class Covid19(Model):
 
     inicial_perones = 10
     inicial_virus = 10
+    reproduccio_virus = 10
 
     temps_deteccio = 1
     durada_malaltia = 1
@@ -30,6 +31,7 @@ class Covid19(Model):
         width=20,
         inicial_persones=10,
         inicial_virus=10,
+        reproduccio_virus = 5,
         temps_deteccio=1,
         durada_malaltia=1,
         mortalitat_virus=1
@@ -41,9 +43,11 @@ class Covid19(Model):
         self.width = width
         self.inicial_persones = inicial_persones
         self.inicial_virus = inicial_virus
+        self.reproduccio_virus = reproduccio_virus
         self.temps_deteccio = temps_deteccio
         self.durada_malaltia = durada_malaltia
         self.mortalitat_virus = mortalitat_virus
+
 
         self.schedule = RandomActivationByBreed(self)
         self.grid = MultiGrid(self.height, self.width, torus=True)
