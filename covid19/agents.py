@@ -30,7 +30,7 @@ class PersonaInfectada(RandomWalker):
             self.model.grid._remove_agent(self.pos, persona)
             self.model.schedule.remove(persona)
             persona_malalta = PersonaMalalta(
-                self.model.next_id(), self.pos, self.model, self.moore, 10, self.model.mortalitat_virus
+                self.model.next_id(), self.pos, self.model, self.moore, 10, 1
             )
             self.model.grid.place_agent(persona_malalta, self.pos)
             self.model.schedule.add(persona_malalta)
@@ -40,7 +40,7 @@ class PersonaInfectada(RandomWalker):
 
 class PersonaMalalta(RandomWalker):
 
-    def __init__(self, unique_id, pos, model, moore, temps_malalta=10, 10):
+    def __init__(self, unique_id, pos, model, moore, temps_malalta=10, mortalitat_virus = 1):
         super().__init__(unique_id, pos, model, moore=moore)
         self.temps_malalta=temps_malalta
         self.mortalitat_virus = mortalitat_virus
@@ -50,6 +50,7 @@ class PersonaMalalta(RandomWalker):
         self.temps_malalta -= 1
         print(self.random.random() * 100)
         print(self.mortalitat_virus)
+        print(self.model.mortalitat_virus)
         print('---------')
         if ((self.random.random() * 100) < self.mortalitat_virus) or (self.temps_malalta < 0):
             x, y = self.pos
