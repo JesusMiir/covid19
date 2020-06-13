@@ -48,7 +48,9 @@ class PersonaMalalta(RandomWalker):
     def step(self):
         self.random_move()
         self.temps_malalta -= 1
-        print((self.random.random()) + ' ' + (self.mortalitat_virus))
+        print(self.random.random() * 100)
+        print(self.mortalitat_virus)
+        print('---------')
         if ((self.random.random() * 100) < self.mortalitat_virus) or (self.temps_malalta < 0):
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
