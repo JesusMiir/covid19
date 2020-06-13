@@ -118,5 +118,5 @@ class Virus(RandomWalker):
             virus = [obj for obj in this_cell if isinstance(obj, Virus)]
             virus = self.random.choice(virus)        
             self.model.grid._remove_agent(self.pos, virus)
-            self.model.schedule.remove(persona)
+            self.model.schedule.remove(virus)
 
