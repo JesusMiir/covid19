@@ -58,7 +58,7 @@ model_params = {
     "temps_deteccio": UserSettableParameter(
         "slider", "Temps detecció", 5, 0, 30
     ),
-    "durada_malaltia": UserSettablePArameter(
+    "durada_malaltia": UserSettableParameter(
         "slider", "Durada malaltia", 5, 0, 30
     ),
     "mortalitat_virus": UserSettableParameter(
