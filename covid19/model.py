@@ -36,7 +36,7 @@ class Covid19(Model):
         self.width = width
         self.inicial_persones = inicial_persones
         self.inicial_virus = inicial_virus
-        self.risc_persona = risc_persona
+        self.mortalitat_virus = mortalitat_virus
 
         self.schedule = RandomActivationByBreed(self)
         self.grid = MultiGrid(self.height, self.width, torus=True)
