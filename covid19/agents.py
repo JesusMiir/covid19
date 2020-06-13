@@ -11,7 +11,7 @@ class PersonaSaludable(RandomWalker):
         self.random_move()
         living = True
 
-        if (self.random.random() * 10) < (self.model.reproduccio_persones):
+        if (self.random.random() * 100) < (self.model.reproduccio_persones):
             virus = PersonaSaludable(
                 self.model.next_id(), self.pos, self.model, self.moore
             )       
