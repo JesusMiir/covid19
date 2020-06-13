@@ -50,10 +50,10 @@ chart_element = ChartModule(
 
 model_params = {
     "inicial_persones": UserSettableParameter(
-        "slider", "Inici persones", 10, 0, 30
+        "slider", "Inici persones", 10, 0, 100
     ),
     "inicial_virus": UserSettableParameter(
-        "slider", "Inici virus", 10, 0, 30
+        "slider", "Inici virus", 5, 0, 30
     ),
     "temps_deteccio": UserSettableParameter(
         "slider", "Temps detecció", 5, 0, 30
