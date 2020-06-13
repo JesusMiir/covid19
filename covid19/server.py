@@ -50,13 +50,16 @@ chart_element = ChartModule(
 
 model_params = {
     "inicial_persones": UserSettableParameter(
-        "slider", "Inici persones", 10, 0, 20
+        "slider", "Inici persones", 5, 0, 20
     ),
     "inicial_virus": UserSettableParameter(
-        "slider", "Inici virus", 5, 0, 20
+        "slider", "Inici virus", 3, 0, 20
     ),
     "reproduccio_persones": UserSettableParameter(
-        "slider", "Reproducció persones", 5, 0, 10
+        "slider", "Reproducció persones", 1, 0, 5
+    ),
+    "reproduccio_virus": UserSettableParameter(
+        "slider", "Reproducció virus", 3, 0, 10
     ),
     "temps_deteccio": UserSettableParameter(
         "slider", "Temps detecció", 5, 0, 10
@@ -67,11 +70,8 @@ model_params = {
     "temps_vida_virus": UserSettableParameter(
         "slider", "Temps de vida del virus", 5, 0, 10
     ),
-    "reproduccio_virus": UserSettableParameter(
-        "slider", "Reproducció virus", 5, 0, 10
-    ),
     "mortalitat_virus": UserSettableParameter(
-        "slider", "Mortalitat del virus", 1, 0, 20
+        "slider", "Mortalitat del virus", 1, 0, 5
     )
 }
 
