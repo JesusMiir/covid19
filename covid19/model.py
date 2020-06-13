@@ -37,7 +37,7 @@ class Covid19(Model):
         reproduccio_persones = 5,
         reproduccio_virus = 5,
 
-        temps_vida_virus = 5
+        temps_vida_virus = 5,
 
         temps_deteccio=1,
         durada_malaltia=1,
