@@ -30,7 +30,7 @@ class PersonaInfectada(RandomWalker):
             self.model.grid._remove_agent(self.pos, persona)
             self.model.schedule.remove(persona)
             persona_malalta = PersonaMalalta(
-                self.model.next_id(), self.pos, self.model, self.moore, 10, mortalitat_virus
+                self.model.next_id(), self.pos, self.model, self.moore, 10, self.model.mortalitat_virus
             )
             self.model.grid.place_agent(persona_malalta, self.pos)
             self.model.schedule.add(persona_malalta)
