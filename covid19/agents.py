@@ -49,10 +49,6 @@ class PersonaMalalta(RandomWalker):
     def step(self):
         self.random_move()
         self.durada_malaltia -= 1
-        print(self.random.random() * 100)
-        print(self.mortalitat_virus)
-        print(self.model.mortalitat_virus)
-        print('---------')
         if ((self.random.random() * 100) < self.mortalitat_virus) or (self.durada_malaltia < 0):
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
@@ -63,11 +59,22 @@ class PersonaMalalta(RandomWalker):
 
             if self.durada_malaltia < 0:
                 persona_immunitzada = PersonaImmunitzada(
-                self.model.next_id(), self.pos, self.model, self.moore
+                    self.model.next_id(), self.pos, self.model, self.moore
                 )
                 self.model.grid.place_agent(persona_immunitzada, self.pos)
                 self.model.schedule.add(persona_immunitzada)
-            
+
+            else 
+                persona_morta = PersonaMortaPelVirus(
+                    self.model.next_id(), self.pos, self.model, self.moore
+                )       
+                self.model.grid.place_agent(persona_immunitzada, self.pos)
+                self.model.schedule.add(persona_immunitzada)     
+
+class PersonaMortaPelVirus(RandomWalker):
+    def __init__(self, unique_id, pos, model, moore):
+        super().__init__(unique_id, pos, model, moore=moore)
+        
 
 class PersonaImmunitzada(RandomWalker):
 

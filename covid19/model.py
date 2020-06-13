@@ -2,7 +2,7 @@ from mesa import Model
 from mesa.space import MultiGrid
 from mesa.datacollection import DataCollector
 
-from covid19.agents import PersonaSaludable, PersonaInfectada, PersonaMalalta, PersonaImmunitzada, Virus
+from covid19.agents import PersonaSaludable, PersonaInfectada, PersonaMalalta, PersonaMortaPelVirus, PersonaImmunitzada, Virus
 from covid19.schedule import RandomActivationByBreed
 
 
@@ -52,6 +52,7 @@ class Covid19(Model):
                 "PersonaSaludable": lambda m: m.schedule.get_breed_count(PersonaSaludable),
                 "PersonaInfectada": lambda m: m.schedule.get_breed_count(PersonaInfectada),
                 "PersonaMalalta": lambda m: m.schedule.get_breed_count(PersonaMalalta),
+                "PersonaMortaPelVirus": lambda m: m.schedule.get_breed_count(PersonaMortaPelVirus),
                 "PersonaImmunitzada": lambda m: m.schedule.get_breed_count(PersonaImmunitzada),
                 "Virus": lambda m: m.schedule.get_breed_count(Virus)
             }
@@ -87,6 +88,7 @@ class Covid19(Model):
                     self.schedule.get_breed_count(PersonaSaludable),
                     self.schedule.get_breed_count(PersonaInfectada),
                     self.schedule.get_breed_count(PersonaMalalta),
+                    self.schedule.get_breed_count(PersonaMortesPelVirus),
                     self.schedule.get_breed_count(PersonaImmunitzada),
                     self.schedule.get_breed_count(Virus)
                 ]
@@ -96,9 +98,6 @@ class Covid19(Model):
 
         if self.verbose:
             print("Nombre inicial de persones: ", self.schedule.get_breed_count(PersonaSaludable))
-            print("Nombre inicial de persones: ", self.schedule.get_breed_count(PersonaInfectada))
-            print("Nombre inicial de persones: ", self.schedule.get_breed_count(PersonaMalalta))
-            print("Nombre inicial de persones: ", self.schedule.get_breed_count(PersonaImmunitzada))
             print("Nombre inicila de virus: ", self.schedule.get_breed_count(Virus))
 
         for i in range(step_count):
@@ -106,8 +105,9 @@ class Covid19(Model):
 
         if self.verbose:
             print("")
-            print("Nombre final de persones: ", self.schedule.get_breed_count(PersonaSaludable))
-            print("Nombre final de persones: ", self.schedule.get_breed_count(PersonaInfectada))
-            print("Nombre final de persones: ", self.schedule.get_breed_count(PersonaMalalta))
-            print("Nombre final de persones: ", self.schedule.get_breed_count(PersonaImmunitzada))
+            print("Nombre final de persones saludables: ", self.schedule.get_breed_count(PersonaSaludable))
+            print("Nombre final de persones infectades: ", self.schedule.get_breed_count(PersonaInfectada))
+            print("Nombre final de persones malaltes: ", self.schedule.get_breed_count(PersonaMalalta))
+            print("Nombre final de persones mortes pel virus: ", self.schedule.get_breed_count(PersonaMortaPelVirus))
+            print("Nombre final de persones immunitzades: ", self.schedule.get_breed_count(PersonaImmunitzada))
             print("Nombre final de virus: ", self.schedule.get_breed_count(Virus))

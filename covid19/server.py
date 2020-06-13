@@ -27,6 +27,8 @@ def covid19_portrayal(agent):
         portrayal["scale"] = 0.9
         portrayal["Layer"] = 3
     
+    if type(agent) is PersonaMortaPelVirus:
+
     if type(agent) is PersonaImmunitzada:
         portrayal["Shape"] = "covid19/resources/persona_immune.jpg"
         portrayal["scale"] = 0.9
@@ -44,8 +46,8 @@ def covid19_portrayal(agent):
 canvas_element = CanvasGrid(covid19_portrayal, 20, 20, 500, 500)
 chart_element = ChartModule(
     [{"Label": "PersonaSaludable", "Color": "#00FF0D"}, {"Label": "PersonaInfectada", "Color": "#FF8700"},
-     {"Label": "PersonaMalalta", "Color": "#AB1103"}, {"Label": "PersonaImmunitzada", "Color": "#08F0EE"},
-     {"Label": "Virus", "Color": "#EA08F0"}]
+     {"Label": "PersonaMalalta", "Color": "#AB1103"}, {"Label": "PersonaImmunitzada", "Color": "#333333"},
+     {"Label": "PersonaImmunitzada", "Color": "#08F0EE"},{"Label": "Virus", "Color": "#EA08F0"}]
 )
 
 model_params = {
