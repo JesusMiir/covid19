@@ -30,7 +30,7 @@ class PersonaInfectada(RandomWalker):
         self.random_move()
         self.temps_deteccio -= 1
 
-        if (self.random.random() * 10) < (self.model.reproduccio_virus):
+        if (self.random.random() * 50) < (self.model.reproduccio_virus):
             virus = Virus(
                 self.model.next_id(), self.pos, self.model, self.moore, self.random.random() * 50
             )       
