@@ -112,7 +112,7 @@ class Virus(RandomWalker):
             self.model.grid.place_agent(persona_infectada, self.pos)
             self.model.schedule.add(persona_infectada)
             
-        if (energia < 0):
+        if (self.energia < 0):
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             virus = [obj for obj in this_cell if isinstance(obj, Virus)]
