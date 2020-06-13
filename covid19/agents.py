@@ -115,7 +115,7 @@ class Virus(RandomWalker):
         self.energia = energia
 
     def step(self):
-        self.random_move()
+        
         self.energia -= 1
         living = True
 
