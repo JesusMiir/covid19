@@ -58,14 +58,14 @@ model_params = {
     "reproduccio_persones": UserSettableParameter(
         "slider", "Reproducció persones", 5, 0, 10
     ),
-    "reproduccio_virus": UserSettableParameter(
-        "slider", "Reproducció virus", 5, 0, 10
-    ),
     "temps_deteccio": UserSettableParameter(
         "slider", "Temps detecció", 5, 0, 10
     ),
     "durada_malaltia": UserSettableParameter(
         "slider", "Durada malaltia", 5, 0, 10
+    ),
+    "reproduccio_virus": UserSettableParameter(
+        "slider", "Reproducció virus", 5, 0, 10
     ),
     "mortalitat_virus": UserSettableParameter(
         "slider", "Mortalitat del virus", 1, 0, 20
