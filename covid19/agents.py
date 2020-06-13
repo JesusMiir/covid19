@@ -40,7 +40,7 @@ class PersonaInfectada(RandomWalker):
 
 class PersonaMalalta(RandomWalker):
 
-    def __init__(self, unique_id, pos, model, moore, temps_malalta=10, mortalitat_virus):
+    def __init__(self, unique_id, pos, model, moore, temps_malalta=10, 10):
         super().__init__(unique_id, pos, model, moore=moore)
         self.temps_malalta=temps_malalta
         self.mortalitat_virus = mortalitat_virus
