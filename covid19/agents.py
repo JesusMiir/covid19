@@ -61,7 +61,7 @@ class PersonaMalalta(RandomWalker):
         self.mortalitat_virus = mortalitat_virus
 
     def step(self):
-        self.random_move()
+       
         self.durada_malaltia -= 1
         if ((self.random.random() * 10) < self.mortalitat_virus) or (self.durada_malaltia < 0):
             x, y = self.pos
