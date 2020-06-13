@@ -16,6 +16,7 @@ class Covid19(Model):
     reproduccio_persones = 5
     reproduccio_virus = 5
     
+    temps_vida_virus = 5
 
     temps_deteccio = 1
     durada_malaltia = 1
@@ -35,6 +36,9 @@ class Covid19(Model):
         inicial_virus=10,
         reproduccio_persones = 5,
         reproduccio_virus = 5,
+
+        temps_vida_virus = 5
+
         temps_deteccio=1,
         durada_malaltia=1,
         mortalitat_virus=1
@@ -48,6 +52,9 @@ class Covid19(Model):
         self.inicial_virus = inicial_virus
         self.reproduccio_persones = reproduccio_persones
         self.reproduccio_virus = reproduccio_virus
+        
+        self.temps_vida_virus = temps_vida_virus
+        
         self.temps_deteccio = temps_deteccio
         self.durada_malaltia = durada_malaltia
         self.mortalitat_virus = mortalitat_virus
@@ -78,7 +85,7 @@ class Covid19(Model):
         for i in range(self.inicial_virus):
             x = self.random.randrange(self.width)
             y = self.random.randrange(self.height)
-            energia = self.random.random() * 50
+            energia = self.model.temps_vida_virus * 50
             virus = Virus(self.next_id(), (x, y), self, True, energia)
             self.grid.place_agent(virus, (x,y))
             self.schedule.add(virus)

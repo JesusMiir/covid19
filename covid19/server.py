@@ -64,6 +64,9 @@ model_params = {
     "durada_malaltia": UserSettableParameter(
         "slider", "Durada malaltia", 5, 0, 10
     ),
+    "temps_vida": UserSettableParameter(
+        "slider", "Temps de vida del virus", 5, 0, 10
+    ),
     "reproduccio_virus": UserSettableParameter(
         "slider", "Reproducció virus", 5, 0, 10
     ),
