@@ -8,8 +8,8 @@ from covid19.schedule import RandomActivationByBreed
 
 class Covid19(Model):
 
-    height = 20
-    width = 20
+    height = 10
+    width = 10
 
     inicial_perones = 20
     inicial_virus = 10
