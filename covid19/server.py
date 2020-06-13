@@ -2,7 +2,7 @@ from mesa.visualization.ModularVisualization import ModularServer
 from mesa.visualization.modules import CanvasGrid, ChartModule
 from mesa.visualization.UserParam import UserSettableParameter
 
-from covid19.agents import PersonaSaludable, PersonaInfectada, PersonaMalalta, PersonaImmunitzada, Virus
+from covid19.agents import PersonaSaludable, PersonaInfectada, PersonaMalalta, PersonaMortaPelVirus, PersonaImmunitzada, Virus
 from covid19.model import Covid19
 
 
@@ -48,7 +48,7 @@ def covid19_portrayal(agent):
 canvas_element = CanvasGrid(covid19_portrayal, 20, 20, 500, 500)
 chart_element = ChartModule(
     [{"Label": "PersonaSaludable", "Color": "#00FF0D"}, {"Label": "PersonaInfectada", "Color": "#FF8700"},
-     {"Label": "PersonaMalalta", "Color": "#AB1103"}, {"Label": "PersonaImmunitzada", "Color": "#333333"},
+     {"Label": "PersonaMalalta", "Color": "#AB1103"}, {"Label": "PersonaMortaPelVirus", "Color": "#333333"},
      {"Label": "PersonaImmunitzada", "Color": "#08F0EE"},{"Label": "Virus", "Color": "#EA08F0"}]
 )
 
