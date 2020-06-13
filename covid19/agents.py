@@ -68,8 +68,8 @@ class PersonaMalalta(RandomWalker):
                 persona_morta = PersonaMortaPelVirus(
                     self.model.next_id(), self.pos, self.model, self.moore
                 )       
-                self.model.grid.place_agent(persona_immunitzada, self.pos)
-                self.model.schedule.add(persona_immunitzada)     
+                self.model.grid.place_agent(persona_morta, self.pos)
+                self.model.schedule.add(persona_morta)     
 
 class PersonaMortaPelVirus(RandomWalker):
     def __init__(self, unique_id, pos, model, moore):
