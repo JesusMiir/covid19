@@ -35,9 +35,10 @@ class PersonaInfectada(RandomWalker):
         self.mortalitat_virus = mortalitat_virus
 
     def step(self):
+        self.temps_deteccio -= 1
+
         if (self.model.perill < self.model.perill_model): 
             self.random_move()
-        self.temps_deteccio -= 1
         
         elif  (self.model.n_random * 10) < (self.model.reproduccio_virus):
             virus = Virus(
@@ -107,7 +108,6 @@ class PersonaImmunitzada(RandomWalker):
     def step(self):
         if (self.model.perill < self.model.perill_model):
             self.random_move()
-        living = True
 
         elif   self.model.n_random * 10 < self.model.mutacio_virus:
             x, y = self.pos
@@ -148,7 +148,6 @@ class Virus(RandomWalker):
     def step(self):
         
         self.energia -= 1
-        living = True
 
         if (self.model.n_random * 10) < (self.model.infeccio_virus):
             x, y = self.pos
