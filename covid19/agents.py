@@ -63,7 +63,7 @@ class PersonaMalalta(RandomWalker):
     def step(self):
        
         self.durada_malaltia -= 1
-        if ((self.random.random() * 10) < self.mortalitat_virus) or (self.durada_malaltia < 0):
+        if ( (self.durada_malaltia < 0):
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaMalalta)]
