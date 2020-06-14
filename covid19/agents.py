@@ -8,9 +8,10 @@ class PersonaSaludable(RandomWalker):
         super().__init__(unique_id, pos, model, moore=moore)
 
     def step(self):
+        print("asdf")
+
         if (self.model.perill < self.model.perill_model): 
             self.random_move()
-        living = True
 
         if (self.model.n_random * 100) < (self.model.reproduccio_persones):
             virus = PersonaSaludable(
