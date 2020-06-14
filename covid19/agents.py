@@ -19,7 +19,7 @@ class PersonaSaludable(RandomWalker):
             self.model.grid.place_agent(virus, self.pos)
             self.model.schedule.add(virus)
         
-        elif  (self.model.n_random * 100) < (self.model.reproduccio_virus):
+        elif  (self.model.n_random * 50) < (self.model.reproduccio_virus):
             virus = Virus(
                 self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random * 50
             )       
@@ -130,7 +130,7 @@ class PersonaImmunitzada(RandomWalker):
             self.model.grid.place_agent(virus, self.pos)
             self.model.schedule.add(virus)
             
-        elif  (self.model.n_random * 100) < (self.model.reproduccio_virus):
+        elif  (self.model.n_random * 50) < (self.model.reproduccio_virus):
             virus = Virus(
                 self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random * 50
             )       
