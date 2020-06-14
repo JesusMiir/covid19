@@ -41,7 +41,7 @@ def covid19_portrayal(agent):
         
 
 
-canvas_element = CanvasGrid(covid19_portrayal, 5, 5, 500, 500)
+canvas_element = CanvasGrid(covid19_portrayal, 7, 7, 500, 500)
 chart_element = ChartModule(
     [{"Label": "PersonaSaludable", "Color": "#00FF0D"}, {"Label": "PersonaInfectada", "Color": "#FF8700"},
      {"Label": "PersonaMalalta", "Color": "#AB1103"}, {"Label": "PersonaMortaPelVirus", "Color": "#333333"},
