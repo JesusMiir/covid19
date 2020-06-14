@@ -78,6 +78,9 @@ model_params = {
     ),
     "mutacio_virus": UserSettableParameter(
         "slider", "Mutació del virus", 1, 0, 5
+    ),
+    "perill_model": UserSettableParameter(
+        "slider", "Perill assignat a la població del model", 3, 0, 10
     )
 }
 

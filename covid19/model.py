@@ -24,6 +24,7 @@ class Covid19(Model):
     mortalitat_virus = 1
     mutacio_virus = 1
 
+    perill_model = 2
     n_random = 0
     perill = 0
 
@@ -50,6 +51,7 @@ class Covid19(Model):
         mortalitat_virus=1,
         mutacio_virus=1,
 
+        perill_model = 2,
         n_random=0,
         perill=0
     ):
@@ -71,6 +73,7 @@ class Covid19(Model):
         self.mortalitat_virus = mortalitat_virus
         self.mutacio_virus = mutacio_virus
 
+        self.perill_model = perill_model
         self.n_random = n_random
         self.perill = perill
 
