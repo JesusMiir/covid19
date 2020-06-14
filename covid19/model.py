@@ -36,7 +36,7 @@ class Covid19(Model):
         self,
         height=7,
         width=7,
-        inicial_persones=10,
+        inicial_persones=5,
         inicial_virus=5,
         reproduccio_persones = 2,
         infeccio_virus=2,
