@@ -12,16 +12,16 @@ class PersonaSaludable(RandomWalker):
         if (self.model.perill < self.model.perill_model): 
             self.random_move()
 
-        if  (self.model.n_random * 50) < (self.model.reproduccio_persones):
+        if  (self.model.n_random1 * 50) < (self.model.reproduccio_persones):
             virus = PersonaSaludable(
                 self.model.next_id(), self.pos, self.model, self.moore
             )       
             self.model.grid.place_agent(virus, self.pos)
             self.model.schedule.add(virus)
         
-        elif  (self.model.n_random * 50) < (self.model.reproduccio_virus):
+        elif  (self.model.n_random1 * 50) < (self.model.reproduccio_virus):
             virus = Virus(
-                self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random * 50
+                self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random1 * 50
             )       
             self.model.grid.place_agent(virus, self.pos)
             self.model.schedule.add(virus)
@@ -40,9 +40,9 @@ class PersonaInfectada(RandomWalker):
         if (self.model.perill < self.model.perill_model): 
             self.random_move()
         
-        if  (self.model.n_random * 10) < (self.model.reproduccio_virus):
+        if  (self.model.n_random2 * 10) < (self.model.reproduccio_virus):
             virus = Virus(
-                self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random * 50
+                self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random2 * 50
             )       
             self.model.grid.place_agent(virus, self.pos)
             self.model.schedule.add(virus)
@@ -73,7 +73,7 @@ class PersonaMalalta(RandomWalker):
     def step(self):
        
         self.durada_malaltia -= 1
-        if self.durada_malaltia < 0 or self.model.n_random * 10 < self.model.mortalitat_virus:
+        if self.durada_malaltia < 0 or self.model.n_random1 * 10 < self.model.mortalitat_virus:
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaMalalta)]
@@ -109,7 +109,7 @@ class PersonaImmunitzada(RandomWalker):
         if (self.model.perill < self.model.perill_model):
             self.random_move()
 
-        if   self.model.n_random * 10 < self.model.mutacio_virus:
+        if   self.model.n_random2 * 10 < self.model.mutacio_virus:
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaImmunitzada)]
@@ -123,16 +123,16 @@ class PersonaImmunitzada(RandomWalker):
             self.model.schedule.add(persona_saludable)
             
 
-        elif  (self.model.n_random * 50) < (self.model.reproduccio_persones):
+        elif  (self.model.n_random2 * 50) < (self.model.reproduccio_persones):
             virus = PersonaSaludable(
                 self.model.next_id(), self.pos, self.model, self.moore
             )       
             self.model.grid.place_agent(virus, self.pos)
             self.model.schedule.add(virus)
             
-        elif  (self.model.n_random * 50) < (self.model.reproduccio_virus):
+        elif  (self.model.n_random2 * 50) < (self.model.reproduccio_virus):
             virus = Virus(
-                self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random * 50
+                self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random2 * 50
             )       
             self.model.grid.place_agent(virus, self.pos)
             self.model.schedule.add(virus)
@@ -149,7 +149,7 @@ class Virus(RandomWalker):
         
         self.energia -= 1
 
-        if (self.model.n_random * 10) < (self.model.infeccio_virus):
+        if (self.model.n_random1 * 10) < (self.model.infeccio_virus):
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaSaludable)]
