@@ -72,7 +72,7 @@ class Covid19(Model):
         self.mutacio_virus = mutacio_virus
 
         self.n_random = n_random
-        self.perill = 0
+        self.perill = perill
 
         self.schedule = RandomActivationByBreed(self)
         self.grid = MultiGrid(self.height, self.width, torus=True)
@@ -110,7 +110,7 @@ class Covid19(Model):
     def step(self):
         self.schedule.step()
         self.n_random = self.random.random()
-        self perill = self.schedule.get_breed_count(PersonaInfectada) + self.schedule.get_breed_count(PersonaMalalta),
+        self.perill = self.schedule.get_breed_count(PersonaInfectada) + self.schedule.get_breed_count(PersonaMalalta),
 
         self.datacollector.collect(self)
         if self.verbose:
