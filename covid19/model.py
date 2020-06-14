@@ -8,8 +8,8 @@ from covid19.schedule import RandomActivationByBreed
 
 class Covid19(Model):
 
-    height = 10
-    width = 10
+    height = 20
+    width = 20
 
     inicial_perones = 20
     inicial_virus = 10
@@ -21,6 +21,7 @@ class Covid19(Model):
     temps_deteccio = 1
     durada_malaltia = 1
     mortalitat_virus = 1
+    mutacio_virus = 1
 
     verbose = False  # Print-monitoring
 
@@ -30,8 +31,8 @@ class Covid19(Model):
 
     def __init__(
         self,
-        height=10,
-        width=10,
+        height=20,
+        width=20,
         inicial_persones=10,
         inicial_virus=5,
         reproduccio_persones = 2,
@@ -41,7 +42,8 @@ class Covid19(Model):
 
         temps_deteccio=3,
         durada_malaltia=3,
-        mortalitat_virus=1
+        mortalitat_virus=1,
+        mutacio_virus=1
     ):
 
         super().__init__()
@@ -58,7 +60,7 @@ class Covid19(Model):
         self.temps_deteccio = temps_deteccio
         self.durada_malaltia = durada_malaltia
         self.mortalitat_virus = mortalitat_virus
-
+        self.mutacio_virus = mutacio_virus
 
         self.schedule = RandomActivationByBreed(self)
         self.grid = MultiGrid(self.height, self.width, torus=True)

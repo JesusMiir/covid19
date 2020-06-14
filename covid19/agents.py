@@ -99,6 +99,20 @@ class PersonaImmunitzada(RandomWalker):
         self.random_move()
         living = True
 
+        if  self.random.random() * 10 < self.model.motacio_virus:
+            x, y = self.pos
+            this_cell = self.model.grid.get_cell_list_contents([self.pos])
+            persona = [obj for obj in this_cell if isinstance(obj, PersonaImmunitzada)]
+            persona = self.random.choice(persona)        
+            self.model.grid._remove_agent(self.pos, persona)
+            self.model.schedule.remove(persona)
+            persona_saludable = PersonaSaludable(
+                self.model.next_id(), self.pos, self.model, self.moore
+            )
+            self.model.grid.place_agent(persona_saludable, self.pos)
+            self.model.schedule.add(persona_saludable)
+            
+
         if (self.random.random() * 100) < (self.model.reproduccio_persones):
             virus = PersonaSaludable(
                 self.model.next_id(), self.pos, self.model, self.moore
