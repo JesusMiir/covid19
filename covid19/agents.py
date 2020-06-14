@@ -13,6 +13,7 @@ class PersonaSaludable(RandomWalker):
         living = True
 
         if (self.model.n_random * 10000) < (self.model.reproduccio_persones):
+            print(self.model.n_random * 10000)
             virus = PersonaSaludable(
                 self.model.next_id(), self.pos, self.model, self.moore
             )       
