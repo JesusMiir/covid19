@@ -14,6 +14,7 @@ class Covid19(Model):
     inicial_perones = 20
     inicial_virus = 10
     reproduccio_persones = 5
+    infeccio_virus = 2
     reproduccio_virus = 5
     
     temps_vida_virus = 5
@@ -33,11 +34,12 @@ class Covid19(Model):
 
     def __init__(
         self,
-        height=10,
-        width=10,
+        height=20,
+        width=20,
         inicial_persones=10,
         inicial_virus=5,
         reproduccio_persones = 2,
+        infeccio_virus=2,
         reproduccio_virus = 2,
 
         temps_vida_virus = 5,
@@ -51,12 +53,13 @@ class Covid19(Model):
     ):
 
         super().__init__()
-        # Set parameters
+        # Parameters
         self.height = height
         self.width = width
         self.inicial_persones = inicial_persones
         self.inicial_virus = inicial_virus
         self.reproduccio_persones = reproduccio_persones
+        self.infeccio_virus = infeccio_virus
         self.reproduccio_virus = reproduccio_virus
         
         self.temps_vida_virus = temps_vida_virus
