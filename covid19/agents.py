@@ -8,7 +8,7 @@ class PersonaSaludable(RandomWalker):
         super().__init__(unique_id, pos, model, moore=moore)
 
     def step(self):
-        if (self.model.schedule.get_breed_count(PersonaMalalta) < 2): 
+        if (self.model.schedule.get_breed_count(PersonaMalalta) < 2 or self.model.schedule.get_breed_count(PersonaInfectada) < 3): 
             self.random_move()
         living = True
 
@@ -28,7 +28,7 @@ class PersonaInfectada(RandomWalker):
         self.mortalitat_virus = mortalitat_virus
 
     def step(self):
-        if (self.model.schedule.get_breed_count(PersonaMalalta) < 2): 
+        if (self.model.schedule.get_breed_count(PersonaMalalta) < 2 or self.model.schedule.get_breed_count(PersonaInfectada) < 3): 
             self.random_move()
         self.temps_deteccio -= 1
         
@@ -98,7 +98,7 @@ class PersonaImmunitzada(RandomWalker):
         super().__init__(unique_id, pos, model, moore=moore)
 
     def step(self):
-        if (self.model.schedule.get_breed_count(PersonaMalalta) < 2): 
+        if (self.model.schedule.get_breed_count(PersonaMalalta) < 2 or self.model.schedule.get_breed_count(PersonaInfectada) < 3): 
             self.random_move()
         living = True
 
