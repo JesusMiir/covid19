@@ -13,14 +13,14 @@ class Covid19(Model):
 
     inicial_perones = 2
     inicial_virus = 3
-    reproduccio_persones = 5
+    reproduccio_persones = 2
     infeccio_virus = 2
-    reproduccio_virus = 5
+    reproduccio_virus = 2
     
     temps_vida_virus = 5
 
-    temps_deteccio = 1
-    durada_malaltia = 1
+    temps_deteccio = 3
+    durada_malaltia = 3
     mortalitat_virus = 1
     mutacio_virus = 1
 
@@ -48,8 +48,8 @@ class Covid19(Model):
 
         temps_deteccio=3,
         durada_malaltia=3,
-        mortalitat_virus=1,
-        mutacio_virus=1,
+        mortalitat_virus=2,
+        mutacio_virus=2,
 
         perill_model = 2,
         n_random=0,

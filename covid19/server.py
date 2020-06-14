@@ -48,6 +48,7 @@ chart_element = ChartModule(
      {"Label": "PersonaImmunitzada", "Color": "#08F0EE"},{"Label": "Virus", "Color": "#EA08F0"}]
 )
 
+
 model_params = {
     "inicial_persones": UserSettableParameter(
         "slider", "Inici persones", 2, 0, 10
@@ -56,28 +57,28 @@ model_params = {
         "slider", "Inici virus", 3, 0, 10
     ),
     "reproduccio_persones": UserSettableParameter(
-        "slider", "Reproducció persones", 1, 0, 10
+        "slider", "Reproducció persones", 2, 0, 10
     ),
     "infeccio_virus": UserSettableParameter(
-        "slider", "Infecció virus", 7, 0, 10
+        "slider", "Infecció virus", 2, 0, 10
     ),
     "reproduccio_virus": UserSettableParameter(
-        "slider", "Reproducció virus", 3, 0, 10
+        "slider", "Reproducció virus", 2, 0, 10
     ),
     "temps_deteccio": UserSettableParameter(
-        "slider", "Temps detecció", 5, 0, 10
+        "slider", "Temps detecció", 3, 0, 10
     ),
     "durada_malaltia": UserSettableParameter(
-        "slider", "Durada malaltia", 5, 0, 10
+        "slider", "Durada malaltia", 3, 0, 10
     ),
     "temps_vida_virus": UserSettableParameter(
         "slider", "Temps de vida del virus", 5, 0, 10
     ),
     "mortalitat_virus": UserSettableParameter(
-        "slider", "Mortalitat del virus", 1, 0, 5
+        "slider", "Mortalitat del virus", 2, 0, 5
     ),
     "mutacio_virus": UserSettableParameter(
-        "slider", "Mutació del virus", 1, 0, 5
+        "slider", "Mutació del virus", 2, 0, 5
     ),
     "perill_model": UserSettableParameter(
         "slider", "Perill assignat (aïllament)", 2, 0, 10
