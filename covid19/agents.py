@@ -12,14 +12,14 @@ class PersonaSaludable(RandomWalker):
         if (self.model.perill < self.model.perill_model): 
             self.random_move()
 
-        else if (self.model.n_random * 100) < (self.model.reproduccio_persones):
+        elif  (self.model.n_random * 100) < (self.model.reproduccio_persones):
             virus = PersonaSaludable(
                 self.model.next_id(), self.pos, self.model, self.moore
             )       
             self.model.grid.place_agent(virus, self.pos)
             self.model.schedule.add(virus)
         
-        else if (self.model.n_random * 1000) < (self.model.reproduccio_virus):
+        elif  (self.model.n_random * 1000) < (self.model.reproduccio_virus):
             virus = Virus(
                 self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random * 50
             )       
@@ -39,7 +39,7 @@ class PersonaInfectada(RandomWalker):
             self.random_move()
         self.temps_deteccio -= 1
         
-        else if (self.model.n_random * 10) < (self.model.reproduccio_virus):
+        elif  (self.model.n_random * 10) < (self.model.reproduccio_virus):
             virus = Virus(
                 self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random * 50
             )       
@@ -109,7 +109,7 @@ class PersonaImmunitzada(RandomWalker):
             self.random_move()
         living = True
 
-        else if  self.model.n_random * 10 < self.model.mutacio_virus:
+        elif   self.model.n_random * 10 < self.model.mutacio_virus:
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaImmunitzada)]
@@ -123,14 +123,14 @@ class PersonaImmunitzada(RandomWalker):
             self.model.schedule.add(persona_saludable)
             
 
-        else if (self.model.n_random * 100) < (self.model.reproduccio_persones):
+        elif  (self.model.n_random * 100) < (self.model.reproduccio_persones):
             virus = PersonaSaludable(
                 self.model.next_id(), self.pos, self.model, self.moore
             )       
             self.model.grid.place_agent(virus, self.pos)
             self.model.schedule.add(virus)
             
-        else if (self.model.n_random * 1000) < (self.model.reproduccio_virus):
+        elif  (self.model.n_random * 1000) < (self.model.reproduccio_virus):
             virus = Virus(
                 self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random * 50
             )       
@@ -164,7 +164,7 @@ class Virus(RandomWalker):
                 self.model.grid.place_agent(persona_infectada, self.pos)
                 self.model.schedule.add(persona_infectada)
                 
-        else if (self.energia < 0):
+        elif  (self.energia < 0):
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             virus = [obj for obj in this_cell if isinstance(obj, Virus)]
