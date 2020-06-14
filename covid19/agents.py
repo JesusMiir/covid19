@@ -133,7 +133,7 @@ class Virus(RandomWalker):
         self.energia -= 1
         living = True
 
-        if self.model.n_random < 0.5:
+        if (self.model.n_random * 10) < (self.model.reproduccio_virus):
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaSaludable)]
