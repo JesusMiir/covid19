@@ -11,7 +11,7 @@ class PersonaSaludable(RandomWalker):
         self.random_move()
         living = True
 
-        if (self.model.n_randoom() * 1000) < (self.model.reproduccio_persones):
+        if (self.model.n_randoom * 1000) < (self.model.reproduccio_persones):
             virus = PersonaSaludable(
                 self.model.next_id(), self.pos, self.model, self.moore
             )       
@@ -30,7 +30,7 @@ class PersonaInfectada(RandomWalker):
         self.random_move()
         self.temps_deteccio -= 1
         
-        if (self.model.n_randoom() * 10) < (self.model.reproduccio_virus):
+        if (self.model.n_randoom * 10) < (self.model.reproduccio_virus):
             virus = Virus(
                 self.model.next_id(), self.pos, self.model, self.moore, self.random.random() * 50
             )       
@@ -63,7 +63,7 @@ class PersonaMalalta(RandomWalker):
     def step(self):
        
         self.durada_malaltia -= 1
-        if self.model.n_randoom() * 10 < self.model.mortalitat_virus or self.durada_malaltia < 0:
+        if self.model.n_randoom * 10 < self.model.mortalitat_virus or self.durada_malaltia < 0:
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaMalalta)]
