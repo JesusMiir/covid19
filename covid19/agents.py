@@ -109,7 +109,7 @@ class PersonaImmunitzada(RandomWalker):
         if (self.model.perill < self.model.perill_model):
             self.random_move()
 
-        if   self.model.n_random * 10 < self.model.mutacio_virus:
+        if   self.random.random() * 10 < self.model.mutacio_virus:
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaImmunitzada)]
@@ -123,14 +123,14 @@ class PersonaImmunitzada(RandomWalker):
             self.model.schedule.add(persona_saludable)
             
 
-        elif  (self.model.n_random * 50) < (self.model.reproduccio_persones):
+        elif  (self.random.random() * 50) < (self.model.reproduccio_persones):
             virus = PersonaSaludable(
                 self.model.next_id(), self.pos, self.model, self.moore
             )       
             self.model.grid.place_agent(virus, self.pos)
             self.model.schedule.add(virus)
             
-        elif  (self.model.n_random * 250) < (self.model.reproduccio_virus):
+        elif  (self.random.random() * 250) < (self.model.reproduccio_virus):
             virus = Virus(
                 self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random * 50
             )       
