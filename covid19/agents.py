@@ -98,7 +98,7 @@ class PersonaImmunitzada(RandomWalker):
         super().__init__(unique_id, pos, model, moore=moore)
 
     def step(self):
-        if (self.model.self.model.perill < 2): 
+        if (self.model.perill < 2):
             self.random_move()
         living = True
 
