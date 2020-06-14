@@ -36,8 +36,8 @@ class Covid19(Model):
 
     def __init__(
         self,
-        height=10,
-        width=10,
+        height=8,
+        width=8,
         inicial_persones=5,
         inicial_virus=5,
         reproduccio_persones = 2,
