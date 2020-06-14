@@ -26,7 +26,7 @@ class Covid19(Model):
 
     perill_model = 2
     n_random = 0
-    perill = 0
+    perill = 2
 
     verbose = False  # Print-monitoring
 
@@ -53,7 +53,7 @@ class Covid19(Model):
 
         perill_model = 2,
         n_random=0,
-        perill=0
+        perill=2
     ):
 
         super().__init__()

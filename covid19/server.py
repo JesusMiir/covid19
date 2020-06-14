@@ -80,7 +80,7 @@ model_params = {
         "slider", "Mutació del virus", 1, 0, 5
     ),
     "perill_model": UserSettableParameter(
-        "slider", "Perill assignat (aïllament)", 3, 0, 10
+        "slider", "Perill assignat (aïllament)", 2, 0, 10
     )
 }
 
