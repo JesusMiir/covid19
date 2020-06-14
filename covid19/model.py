@@ -110,7 +110,7 @@ class Covid19(Model):
     def step(self):
         self.schedule.step()
         self.n_random = self.random.random()
-        self.perill = self.schedule.get_breed_count(PersonaInfectada) + self.schedule.get_breed_count(PersonaMalalta),
+        self.perill = (self.schedule.get_breed_count(PersonaInfectada) + self.schedule.get_breed_count(PersonaMalalta))
 
         self.datacollector.collect(self)
         if self.verbose:
