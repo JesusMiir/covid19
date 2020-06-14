@@ -76,7 +76,8 @@ class Covid19(Model):
         self.mutacio_virus = mutacio_virus
 
         self.perill_model = perill_model
-        self.n_random = n_random
+        self.n_random1 = n_random1
+        self.n_random2 = n_random2
         self.perill = perill
 
         self.schedule = RandomActivationByBreed(self)
