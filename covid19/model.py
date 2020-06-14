@@ -25,8 +25,7 @@ class Covid19(Model):
     mutacio_virus = 1
 
     perill_model = 2
-    n_random1 = 0
-    n_random2 = 0
+    n_random = 0
     perill = 2
 
     verbose = False  # Print-monitoring
@@ -53,8 +52,7 @@ class Covid19(Model):
         mutacio_virus=1,
 
         perill_model = 2,
-        n_random1=0,
-        n_random2=0,
+        n_random=0,
         perill=2
     ):
 
@@ -76,8 +74,7 @@ class Covid19(Model):
         self.mutacio_virus = mutacio_virus
 
         self.perill_model = perill_model
-        self.n_random1 = n_random1
-        self.n_random2 = n_random2
+        self.n_random = n_random
         self.perill = perill
 
         self.schedule = RandomActivationByBreed(self)
@@ -115,8 +112,7 @@ class Covid19(Model):
 
     def step(self):
         self.schedule.step()
-        self.n_random1 = self.random.random()
-        self.n_random2 = self.random.random()
+        self.n_random = self.random.random()
         self.perill = (self.schedule.get_breed_count(PersonaInfectada) + self.schedule.get_breed_count(PersonaMalalta))
 
         self.datacollector.collect(self)
