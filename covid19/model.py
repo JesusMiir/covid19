@@ -15,12 +15,12 @@ class Covid19(Model):
     inicial_virus = 3
     reproduccio_persones = 2
     infeccio_virus = 2
-    reproduccio_virus = 2
+    reproduccio_virus = 3
     
     temps_vida_virus = 5
 
-    temps_deteccio = 3
-    durada_malaltia = 3
+    temps_deteccio = 6
+    durada_malaltia = 8
     mortalitat_virus = 1
     mutacio_virus = 1
 
@@ -42,12 +42,12 @@ class Covid19(Model):
         inicial_virus=3,
         reproduccio_persones = 2,
         infeccio_virus=2,
-        reproduccio_virus = 2,
+        reproduccio_virus = 3,
 
         temps_vida_virus = 5,
 
-        temps_deteccio=3,
-        durada_malaltia=3,
+        temps_deteccio=6,
+        durada_malaltia=8,
         mortalitat_virus=2,
         mutacio_virus=2,
 

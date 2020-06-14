@@ -63,13 +63,13 @@ model_params = {
         "slider", "Infecció virus", 2, 0, 10
     ),
     "reproduccio_virus": UserSettableParameter(
-        "slider", "Reproducció virus", 2, 0, 10
+        "slider", "Reproducció virus", 3, 0, 10
     ),
     "temps_deteccio": UserSettableParameter(
-        "slider", "Temps detecció", 3, 0, 10
+        "slider", "Temps detecció", 6, 0, 10
     ),
     "durada_malaltia": UserSettableParameter(
-        "slider", "Durada malaltia", 3, 0, 10
+        "slider", "Durada malaltia", 8, 0, 10
     ),
     "temps_vida_virus": UserSettableParameter(
         "slider", "Temps de vida del virus", 5, 0, 10
