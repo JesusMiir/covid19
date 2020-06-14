@@ -137,7 +137,7 @@ class Virus(RandomWalker):
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
             persona = [obj for obj in this_cell if isinstance(obj, PersonaSaludable)]
-
+            print('holaa')
             if len(persona) > 0:
                 persona = self.random.choice(persona)        
                 self.model.grid._remove_agent(self.pos, persona)
@@ -148,11 +148,11 @@ class Virus(RandomWalker):
                 self.model.grid.place_agent(persona_infectada, self.pos)
                 self.model.schedule.add(persona_infectada)
                 
-            if (self.energia < 0):
-                x, y = self.pos
-                this_cell = self.model.grid.get_cell_list_contents([self.pos])
-                virus = [obj for obj in this_cell if isinstance(obj, Virus)]
-                virus = self.random.choice(virus)        
-                self.model.grid._remove_agent(self.pos, virus)
-                self.model.schedule.remove(virus)
+        if (self.energia < 0):
+            x, y = self.pos
+            this_cell = self.model.grid.get_cell_list_contents([self.pos])
+            virus = [obj for obj in this_cell if isinstance(obj, Virus)]
+            virus = self.random.choice(virus)        
+            self.model.grid._remove_agent(self.pos, virus)
+            self.model.schedule.remove(virus)
 
