@@ -14,7 +14,7 @@ class Covid19(Model):
     inicial_perones = 5
     inicial_virus = 3
     reproduccio_persones = 2
-    infeccio_virus = 5
+    infeccio_virus = 6
     reproduccio_virus = 3
     
     temps_vida_virus = 5
@@ -41,7 +41,7 @@ class Covid19(Model):
         inicial_persones=5,
         inicial_virus=3,
         reproduccio_persones = 2,
-        infeccio_virus=5,
+        infeccio_virus=6,
         reproduccio_virus = 3,
 
         temps_vida_virus = 5,
