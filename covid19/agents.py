@@ -29,14 +29,14 @@ class PersonaInfectada(RandomWalker):
     def step(self):
         self.random_move()
         self.temps_deteccio -= 1
-
-        if (self.random.random() * 10) < (self.model.reproduccio_virus):
-            virus = Virus(
-                self.model.next_id(), self.pos, self.model, self.moore, self.random.random() * 50
-            )       
-            self.model.grid.place_agent(virus, self.pos)
-            self.model.schedule.add(virus)
-
+        
+        #if (self.random.random() * 10) < (self.model.reproduccio_virus):
+        #    virus = Virus(
+        #        self.model.next_id(), self.pos, self.model, self.moore, self.random.random() * 50
+        #    )       
+        #    self.model.grid.place_agent(virus, self.pos)
+        #    self.model.schedule.add(virus)
+        
         if self.temps_deteccio < 0:
             x, y = self.pos
             this_cell = self.model.grid.get_cell_list_contents([self.pos])
