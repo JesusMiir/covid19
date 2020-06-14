@@ -32,7 +32,7 @@ class PersonaInfectada(RandomWalker):
         
         if (self.model.n_random * 10) < (self.model.reproduccio_virus):
             virus = Virus(
-                self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random * 50
+                self.model.next_id(), self.pos, self.model, self.moore, self.model.n_random * 500
             )       
             self.model.grid.place_agent(virus, self.pos)
             self.model.schedule.add(virus)
