@@ -23,6 +23,8 @@ class Covid19(Model):
     mortalitat_virus = 1
     mutacio_virus = 1
 
+    n_randoom = 0
+
     verbose = False  # Print-monitoring
 
     description = (
@@ -43,7 +45,9 @@ class Covid19(Model):
         temps_deteccio=3,
         durada_malaltia=3,
         mortalitat_virus=1,
-        mutacio_virus=1
+        mutacio_virus=1,
+
+        n_randoom=0
     ):
 
         super().__init__()
@@ -61,6 +65,8 @@ class Covid19(Model):
         self.durada_malaltia = durada_malaltia
         self.mortalitat_virus = mortalitat_virus
         self.mutacio_virus = mutacio_virus
+
+        self.n_randoom = n_randoom
 
         self.schedule = RandomActivationByBreed(self)
         self.grid = MultiGrid(self.height, self.width, torus=True)
@@ -97,6 +103,7 @@ class Covid19(Model):
 
     def step(self):
         self.schedule.step()
+        self.n_randoom = self.random.random()
         self.datacollector.collect(self)
         if self.verbose:
             print(
