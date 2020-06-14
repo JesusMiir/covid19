@@ -11,7 +11,7 @@ class Covid19(Model):
     height = 8
     width = 8
 
-    inicial_perones = 5
+    inicial_perones = 2
     inicial_virus = 5
     reproduccio_persones = 5
     infeccio_virus = 2
@@ -38,7 +38,7 @@ class Covid19(Model):
         self,
         height=8,
         width=8,
-        inicial_persones=5,
+        inicial_persones=2,
         inicial_virus=5,
         reproduccio_persones = 2,
         infeccio_virus=2,
