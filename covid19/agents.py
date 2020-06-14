@@ -139,6 +139,7 @@ class Virus(RandomWalker):
             persona = [obj for obj in this_cell if isinstance(obj, PersonaSaludable)]
             print('holaa')
             if len(persona) > 0:
+                print('holaa 2')
                 persona = self.random.choice(persona)        
                 self.model.grid._remove_agent(self.pos, persona)
                 self.model.schedule.remove(persona)
