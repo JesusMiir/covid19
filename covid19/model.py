@@ -28,10 +28,10 @@ class Covid19(Model):
     n_random = 0
     perill = 5
 
-    verbose = False  # Print-monitoring
+    verbose = False  
 
     description = (
-        "El model vol simular la capacitat que te un virus d'infectar a la població."
+        "El model vol simular la capacitat que té un virus d'infectar a una població."
     )
 
     def __init__(
@@ -40,11 +40,11 @@ class Covid19(Model):
         width=8,
         inicial_persones=5,
         inicial_virus=3,
-        reproduccio_persones = 2,
+        reproduccio_persones=2,
         infeccio_virus=6,
-        reproduccio_virus = 3,
+        reproduccio_virus=3,
 
-        temps_vida_virus = 5,
+        temps_vida_virus=5,
 
         temps_deteccio=6,
         durada_malaltia=8,
@@ -57,7 +57,7 @@ class Covid19(Model):
     ):
 
         super().__init__()
-        # Parameters
+       
         self.height = height
         self.width = width
         self.inicial_persones = inicial_persones
