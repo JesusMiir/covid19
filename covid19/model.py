@@ -102,7 +102,7 @@ class Covid19(Model):
         for i in range(self.inicial_virus):
             x = self.random.randrange(self.width)
             y = self.random.randrange(self.height)
-            energia = self.temps_vida_virus * self.random.random() * 50
+            energia = 50
             virus = Virus(self.next_id(), (x, y), self, True, energia)
             self.grid.place_agent(virus, (x,y))
             self.schedule.add(virus)
